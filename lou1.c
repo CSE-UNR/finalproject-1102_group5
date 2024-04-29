@@ -1,11 +1,20 @@
 //Subject:Image
-//Author:Louis w Pierce lll
+//Author:Louis w Pierce lll and Isaiah Marzan
 //Date:4-29-24
 	
 #include <stdio.h>
+ 
  int greyScale(int rec1,int rec2);
+ 
  int disPlay(int a,int b);
+ 
  int edit(int chg1,int chg2);
+ 
+ //cropImage function here
+ 
+ //dimImage function here
+ 
+ //brightenImage function here
  
  int main(){
  	double height, width;
@@ -86,11 +95,22 @@
 			
  		//case 3 Edit image
  			int edit(int chg1,int chg2){
- 			int height, width;
+ 			int height, width, userOption;
 				height = chg1;
 				width = chg2;
+				
+			printf("(1)Load Image\n");
+ 			printf("(2)Display Image\n");
+ 			printf("(3)Edit Image\n");
+			printf("Choose an option: ");
+			scanf(" %c", &userOption);
+			
 				
 		return height,width;
 		}
 		
+			//cropImage function here
 			
+			//dimImage function here
+			
+			//brightenImage function here
