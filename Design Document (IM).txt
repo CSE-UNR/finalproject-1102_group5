@@ -1,0 +1,208 @@
+Isaiah Marzan
+
+04/28/24
+
+Section 1001
+
+Final Project Design
+
+
+Main
+
+Prompt user for a task (Load, Display, Edit, Exit)
+
+Execute task user chooses
+
+	If user chooses Edit Prompt for another task (Crop, Dim, Brighten)
+
+Prompt user if they want to save the image to a file
+
+	If yes, prompt for a file name
+
+		Get file name 
+
+		Open  the received file to write
+
+		Convert all characters to Brightness Levels through case selection
+
+			If character is “ “, Brightness level is 0
+
+			If character is “.“, Brightness level is 1
+
+			If character is “o“, Brightness level is 2
+
+			If character is “O“, Brightness level is 3
+
+			If character is “0“, Brightness level is 4
+
+		Store all Brightness Levels in the file
+
+		Close file
+
+	Repeat till user exits
+
+
+
+
+
+
+loadImage
+
+	Prompt for filename and store in a variable
+
+	Open file through variable to read
+
+		If unable to open display error
+
+		Else read and store all “pixels” 
+
+			Repeat till pc doesn’t “see” anymore rows
+
+				Repeat till pc doesn’t “see” anymore columns
+
+					Read/store Brightness Value
+
+	Close file
+
+	Display all characters through a case selection
+
+		If  the Brightness Value is 0, display “ “
+
+		If the Brightness Value is 1, display “.”
+
+		If the Brightness Value is 2,display “o”
+
+		If the Brightness Value is 3, display “O”
+
+		If the Brightness Value is 4, display “0”
+
+
+
+
+
+
+displayImage
+
+	Open predetermined file to read
+
+	Read and store all Brightness Values from the file
+
+	Close file
+
+	Display all characters through a case selection
+
+		If  the Brightness Value is 0, display “ “
+
+		If the Brightness Value is 1, display “.”
+
+		If the Brightness Value is 2,display “o”
+
+		If the Brightness Value is 3, display “O”
+
+		If the Brightness Value is 4, display “0”
+
+
+
+
+
+editImage
+
+	Display menu for user to do a task (Crop, Dim, Brighten)
+
+	Execute task user chooses
+
+	Use displayImage task to display the new image
+
+
+
+
+cropImage
+
+	Prompt user for location of new top left corner
+
+	Store new location in variable
+
+	Prompt user for location of new top right corner
+
+	Store new location in variable
+
+	Prompt user for location of new bottom left corner
+
+	Store new location in variable
+
+	Prompt user for location of new bottom right corner
+
+	Store new location in variable
+
+	Display new image using the new “Boundaries”
+
+		If  the Brightness Value is 0, display “ “
+
+		If the Brightness Value is 1, display “.”
+
+		If the Brightness Value is 2,display “o”
+
+		If the Brightness Value is 3, display “O”
+
+		If the Brightness Value is 4, display “0”
+
+
+
+
+
+
+dimImage
+
+	Open predetermined file to read
+
+	Read and store all Brightness Values from the file
+
+	Close the file 
+
+	Decrement all Brightness Values down by 1 
+
+	Display all characters through a case selection
+
+		If  the Brightness Value is 0, display “ “
+
+		If the Brightness Value is 1, display “.”
+
+		If the Brightness Value is 2,display “o”
+
+		If the Brightness Value is 3, display “O”
+
+		If the Brightness Value is 4, display “0”
+
+
+
+
+
+brightenImage
+
+	Open predetermined file to read
+
+		Read and store all Brightness Values from the file
+
+		Close the file 
+
+		Increment all Brightness Values up by 1 
+
+		Display all characters through a case selection
+
+			If  the Brightness Value is 0, display “ “
+
+			If the Brightness Value is 1, display “.”
+
+			If the Brightness Value is 2,display “o”
+
+			If the Brightness Value is 3, display “O”
+
+			If the Brightness Value is 4, display “0”
+
+Potential Changes
+
+Add a Render/Display task that does the rendering (If Brightness is X, display 1)
+
+
+
+
