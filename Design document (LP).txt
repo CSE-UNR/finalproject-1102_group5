@@ -1,48 +1,48 @@
-//Date: 4-26-24
-Design Document
-Louis Pierce
-Grey Scale Imaging
-Data
-image – 2d array of int (imageHeight x imageWidth)
-imageHeight – int for image pixel height
-imageWidth – int for image pixel width
-menuInput – int for user’s numbered menu choice
-imgPtr – file pointer to image
-nameInput – array of chars (100) for user’s file name choice
-App Function
-User goes through a menu system to either load an image, display an image, or edit an
-image; they can edit images by cropping, dimming, or brightening and then saving their
-image. The image can be displayed to the terminal with four different characters
-depending on the brightness of the image.
-Functions
+	//Date: 4-26-24
+				Design Document
+				Louis Pierce
+	Grey Scale Imaging
+	Data
+	image – 2d array of int (imageHeight x imageWidth)
+	imageHeight – int for image pixel height
+	imageWidth – int for image pixel width
+	menuInput – int for user’s numbered menu choice
+	imgPtr – file pointer to image
+	nameInput – array of chars (100) for user’s file name choice
+	App Function
+  	 User goes through a menu system to either load an image, display an image, or edit an
+   	 image; they can edit images by cropping, dimming, or brightening and then saving their
+   	 image. The image can be displayed to the terminal with four different characters
+  	 depending on the brightness of the image.
+	Functions
 main()
-Data:
-File pointer, user input variable, imageHeight, imageWidth for 2D array size.
-Functionality:
-Main menu, loadImage, displayImage, editImage, or exit
-(Load)-loadImage()
-Input Parameters: File pointer, imageHeight, imageWidth
-Returned Output: none
-Functionality: Ask user for a file and load file data into a 2D array.
-(Display)-displayImage()
-Input Parameters: int rows, int columns, int field 2D array
-Returned Output: Console display of picture
-Functionality: Prints each value from file to console as a different character based on
-brightness level (0-4)
-(Edit)-editImage
-Input Parameters: int rows, int columns, int field 2D array
-Returned Output: Nothing
-Functionality: Change the image (if there is one) by giving another menu of choices.
-(Crop)
-Input Parameters: int rows, int columns, input resize choice.
-Returned Output: new sized 2d array.
-Functionality: changes image to resize parameter
-//Date: 4-26-24
-(Dim)
-Input Parameters: 2D Image Array
-Returned Output:
-Functionality: One step darkening to all values.
-(Brighten)
-Input Parameters: 2D Image Array
-Returned Output:
-Functionality: One step brightening to all values.
+	Data:
+	File pointer, user input variable, imageHeight, imageWidth for 2D array size.
+	Functionality:
+	Main menu, loadImage, displayImage, editImage, or exit
+	(Load)-loadImage()
+	Input Parameters: File pointer, imageHeight, imageWidth
+	Returned Output: none
+	Functionality: Ask user for a file and load file data into a 2D array.
+	(Display)-displayImage()
+	Input Parameters: int rows, int columns, int field 2D array
+	Returned Output: Console display of picture
+	Functionality: Prints each value from file to console as a different character based on
+	brightness level (0-4)
+	(Edit)-editImage
+	Input Parameters: int rows, int columns, int field 2D array
+	Returned Output: Nothing
+	Functionality: Change the image (if there is one) by giving another menu of choices.
+	(Crop)
+	Input Parameters: int rows, int columns, input resize choice.
+	Returned Output: new sized 2d array.
+	Functionality: changes image to resize parameter
+	//Date: 4-26-24
+	(Dim)
+	Input Parameters: 2D Image Array
+	Returned Output:
+	Functionality: One step darkening to all values.
+	(Brighten)
+	Input Parameters: 2D Image Array
+	Returned Output:
+	Functionality: One step brightening to all values.
