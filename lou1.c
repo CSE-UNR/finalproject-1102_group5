@@ -3,87 +3,100 @@
 //Date:4-29-24
 	
 #include <stdio.h>
-#define FILENAME "currentimage.txt"
- void displayImage(FILE* out);
- int greyScale(int rec1,int rec2);
- int edit(int chg1,int chg2);
- 
- int main(){
- 	double height,width;
- 	int rec1,rec2,dis,chg1,chg2;
- 	char i;
-	FILE* fptr;
- 	int images[1];
- 		printf("Pick image to load, display, and edit.\n");
-									
- 	for(int i = 0; i < 1; i++){
- 		printf("(1)Load Image\n");
- 		printf("(2)Display Image\n");
- 		printf("(3)Edit Image\n");
- 		printf("(4)Exit\n");
- 		scanf("%d", &images[i]);
- 	}
-	for(int i = 0; i < 1; i++ ) {
-		switch (images[i]){
-	 		case 1:
-	 			printf("\n");
-	 			printf("Load greyscale image: ");
-	 			scanf("%d", &rec1);
-	 			
-	 			height = rec1;
-				width = rec2;
-	 			printf("The height %.2f and the width %.2f of the image.\n ", height, width);
-				
-	 		break;
-	 		case 2:
-	 			printf("\n");
-	 			printf("Select file image to load: ");
-	 			scanf("%d", &dis);
-	 			fptr = fopen(FILENAME, "r");
-			if(fptr == NULL){
-				printf("Cannot open file. Exiting program. \n");
-	 			height = dis;
-	 			width = dis;
-	 			printf("The height %.2f and the width %.2f of the image.\n ", height, width);
-	 			displayImage(fptr);
-				fclose(fptr);
-			}
-	 		break;
-	 		case 3:
-	 			printf("\n");
-	 			printf("Enter height between (1-600): ");
-	 			scanf("%d", &chg1);
-	 			printf("Enter height between (1-600): ");
-	 			scanf("%d", &chg2);
-	 			height = chg1;
-	 			width = chg2;
-	 			printf("The height %.2f and the width %.2f of the image.\n ", height, width);
-		
-			
-	 		break;	
-	 		case 4:
-	 			return 0;
+void DisplayImage(int** imageArray);
+void LoadImage();
+int edit(int chg1,int chg2);
+
+int main() {
+	int height, width;
+
+    printf("====================\n");
+    printf("Image Modifier\n");
+    printf("====================\n");
+    printf("1. Load Image\n");
+    printf("2. Display Image\n");
+    printf("3. Edit Image\n");
+    printf("4. Exit\n");
+    printf("====================\n");
+    printf("Enter your choice: \n");
+    int choice;
+    scanf("%d", &choice);
+    int** imageArray;
+		switch (choice) {
+         case 1:
+            LoadImage();
+            break;
+         case 2:
+            DisplayImage(imageArray);           
+            break;
+	 case 3:
+            // EditImage();
+            break;
+	 case 4:
+            printf("Exiting...");
+            break;
 	 		default:
 	 			printf("The picture you have loaded or modified needs to be reloaded!");
 	 		break;
-	 	}
+	 	
 	}
 	return 0;
 }
 
 //case 1 Load image
-int greyScale(int rec1,int rec2){
-	int height, width;
-	height = rec1;
-	width = rec2;
-	return height;
+void LoadImage() {
+    char fileName[100];
+    printf("Enter the file name: ");
+    scanf("%s", fileName);
+
+    FILE* filePtr;
+    filePtr = fopen(fileName, "r");
+    if (filePtr == NULL) {
+        fprintf(stderr, "Could not open file.");
+        return;
+    }
+
+    int height = 0;
+    int width = 0;
+    char line[100];
+    while (fgets(line, sizeof(line), filePtr)) {
+        height++;
+        int i = 0;
+        while (line[i] != '\0') {
+            if (line[i] != ' ' && line[i] != '\n') {
+                width++;
+            }
+            i++;
+        }
+    }
+
+    printf("Number of lines: %d\n", height);
+    printf("Number of numbers in each row: %d\n", width / height);
+
+    fclose(filePtr);
 }
 			
 //case 2 Display image
-void displayImage(FILE* out){
-	int height, width;
-	height = 0;
-	width = 0;	
+void DisplayImage(int** imageArray){
+    for(int j = 0; j < sizeof(imageArray); j++){
+        for (int i = 0; i < sizeof(imageArray[0]); i++){
+            if(imageArray[j][i] == 0) {
+                printf(" ");
+            }
+            else if(imageArray[j][i] == 1){
+                printf(".");
+            }
+            else if(imageArray[j][i] == 2){
+                printf("o");
+            }
+            else if(imageArray[j][i] == 3){
+                printf("O");
+            }
+            else if(imageArray[j][i] == 4){
+                printf("0");
+            }
+        }
+    }
 }
 			
 			
