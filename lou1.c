@@ -39,7 +39,7 @@
 	 			printf("\n");
 	 			printf("Select file image to load: ");
 	 			scanf("%d", &dis);
-	 			fptr = fopen(FILENAME, "w");
+	 			fptr = fopen(FILENAME, "r");
 			if(fptr == NULL){
 				printf("Cannot open file. Exiting program. \n");
 	 			height = dis;
