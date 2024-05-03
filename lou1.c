@@ -9,7 +9,9 @@ void LoadImage();
 int edit(int chg1,int chg2);
 
 int main() {
-	int height, width;
+	int height, width, choice;
+	
+	do {	
 
     printf("====================\n");
     printf("Image Modifier\n");
@@ -20,7 +22,7 @@ int main() {
     printf("4. Exit\n");
     printf("====================\n");
     printf("Enter your choice: \n");
-    int choice;
+   
     scanf("%d", &choice);
     int** imageArray;
 		switch (choice) {
@@ -40,7 +42,10 @@ int main() {
 	 			printf("The picture you have loaded or modified needs to be reloaded!");
 	 		break;
 	 	
-	}
+	}	
+	
+	}	while (choice !=4);
+	
 	return 0;
 }
 
