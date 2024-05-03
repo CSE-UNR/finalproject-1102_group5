@@ -47,19 +47,16 @@ int main() {
 //case 1 Load image
 void LoadImage() {
     char fileName[100];
-    printf("What is the name of the image file? ");
+    printf("Enter the file name: ");
     scanf("%s", fileName);
 
     FILE* filePtr;
     filePtr = fopen(fileName, "r");
     if (filePtr == NULL) {
         fprintf(stderr, "Could not open file.");
-       
-
         return;
     }
-    printf("\n");
-    printf("Image successfully loaded!\n\n");
+
     int height = 0;
     int width = 0;
     char line[100];
@@ -74,7 +71,9 @@ void LoadImage() {
         }
     }
 
-   
+    printf("Number of lines: %d\n", height);
+    printf("Number of numbers in each row: %d\n", width / height);
+
     fclose(filePtr);
 }
 			
