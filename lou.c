@@ -86,8 +86,8 @@ void LoadImage(int imageArray[80][80], int* h, int* w) {
             char ch;
             do {
                 fscanf(filePtr, "%c", &ch);
-            } while (ch == ' ' || ch == '\n'); // Skip spaces and newlines
-            imageArray[i][j] = ch - '0'; // Convert character to integer
+            } while (ch == ' ' || ch == '\n'); 
+            imageArray[i][j] = ch - '0'; 
         }
     }
     fclose(filePtr);
