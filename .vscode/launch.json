@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Volumes/Zhombo/CS 135/finalproject-1102_group5",
+      "program": "/Volumes/Zhombo/CS 135/finalproject-1102_group5/build/Debug/outDebug"
+    }
+  ]
+}

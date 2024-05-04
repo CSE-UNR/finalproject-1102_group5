@@ -13,7 +13,6 @@ int main() {
 	int choice = 0;
     int change = 0;
 	int imageArray[80][80];
-   
     int height = 0;
     int width = 0;
 	do {	
@@ -73,6 +72,7 @@ void LoadImage(int imageArray[80][80], int* h, int* w) {
     while (fgets(line, sizeof(line), filePtr)) {
         height++;
         int i = 0;
+        width = 0;
         while (line[i] != '\0') {
             if (line[i] != ' ' && line[i] != '\n') {
                 width++;
@@ -80,23 +80,26 @@ void LoadImage(int imageArray[80][80], int* h, int* w) {
             i++;
         }
     }
-
     rewind(filePtr);
     for (int i = 0; i < height; i++) {
         for (int j= 0; j < width; j++) {
-            fscanf(filePtr, "%d", &imageArray[i][j]);
+            char ch;
+            do {
+                fscanf(filePtr, "%c", &ch);
+            } while (ch == ' ' || ch == '\n'); // Skip spaces and newlines
+            imageArray[i][j] = ch - '0'; // Convert character to integer
         }
     }
     fclose(filePtr);
-    *w = width/height;
+    *w = width;
     *h = height;
 }
 			
 //case 2 Display image
 void DisplayImage(int imageArray[80][80], int h, int w){
+    printf("\n");
     for(int j = 0; j < h; j++){
         for (int i = 0; i < w; i++){
-            // printf("%d", imageArray[j][i]);
             if(imageArray[j][i] == 0) {
                 printf(" ");
             }
@@ -115,6 +118,7 @@ void DisplayImage(int imageArray[80][80], int h, int w){
         }
         printf("\n");
     }
+    printf("\n");
 }
 					
 	
