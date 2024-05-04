@@ -4,8 +4,9 @@
 	
 #include <stdio.h>
 
+
 void DisplayImage(int** imageArray);
-void LoadImage();
+void LoadImage(int** imageArray);
 int edit(int chg1,int chg2);
 
 int main() {
@@ -27,7 +28,7 @@ int main() {
     int** imageArray;
 		switch (choice) {
          case 1:
-            LoadImage();
+            LoadImage(imageArray);
             break;
          case 2:
             DisplayImage(imageArray);           
@@ -50,7 +51,7 @@ int main() {
 }
 
 //case 1 Load image
-void LoadImage() {
+void LoadImage(int** imageArray) {
     char fileName[100];
     printf("What is the name of the image file? ");
     scanf("%s", fileName);
@@ -77,9 +78,21 @@ void LoadImage() {
             }
             i++;
         }
+    
+		for (int i = 0; i < height; i++) {
+    
+    			for (int j= 0; j < width; j++) {
+    	
+    				fscanf (filePtr,"%d", &imageArray[i][j]);
+    		
+    			}
+    	
+    		}
+    
     }
 
-   
+    
+    
     fclose(filePtr);
 }
 			
@@ -115,4 +128,53 @@ int edit(int chg1,int chg2){
 	return height;
 }
 		
+	
+			
+//case 3 Edit image
+int edit(int chg1,int chg2){
+
+	printf("	**EDITING** \n");
+	printf("1: Crop image\n");
+	printf("2: Dim image\n");
+	printf("3: Brighten image\n");
+	printf("0: Return to main menu\n");
+	
+	switch (change) {
+         case 1:
+            CropImage();
+            break;
+         case 2:
+            DimImage();           
+            break;
+	 case 3:
+            BrightenImage();
+            break;
+	 case 4:
+            Return();
+            break;
+	 		default:
+	 			printf("The picture you have loaded or modified needs to be reloaded!");
+	 		break;
+	 	
+	}	
+	
+	
+	printf("Choose from one of the options above: "); 
+
+
+
+
+
+	int height, width;
+	height = chg1;
+	width = chg2;
+	
+	
+	
+	printf("The image you want to crop is %d", &DisplayImage);
+	printf("The row and column values start in the upper lefthand corner.");			
+	return height;
+}
+//sub functions
+	
 			
