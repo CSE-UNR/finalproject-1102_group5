@@ -10,7 +10,7 @@ void LoadImage(int** imageArray);
 int edit(int chg1,int chg2);
 
 int main() {
-	int height, width, choice;
+	int height, width, choice, change;
 	
 	do {	
 
@@ -118,20 +118,11 @@ void DisplayImage(int** imageArray){
         }
     }
 }
-			
-			
-//case 3 Edit image
-int edit(int chg1,int chg2){
-	int height, width;
-	height = chg1;
-	width = chg2;			
-	return height;
-}
-		
+					
 	
 			
 //case 3 Edit image
-int edit(int chg1,int chg2){
+int edit(int chg1){
 
 	printf("	**EDITING** \n");
 	printf("1: Crop image\n");
@@ -152,8 +143,8 @@ int edit(int chg1,int chg2){
 	 case 4:
             Return();
             break;
-	 		default:
-	 			printf("The picture you have loaded or modified needs to be reloaded!");
+	 default:
+	 printf("The picture you have loaded or modified needs to be reloaded!");
 	 		break;
 	 	
 	}	
@@ -175,6 +166,6 @@ int edit(int chg1,int chg2){
 	printf("The row and column values start in the upper lefthand corner.");			
 	return height;
 }
-//sub functions
+
 	
 			
