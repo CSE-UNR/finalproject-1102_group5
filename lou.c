@@ -9,6 +9,7 @@ void DisplayImage(int imageArray[80][80], int h, int w);
 void LoadImage(int imageArray[80][80], int* height, int* width);
 //void EditImage(int imageArray[80][80], int* height, int* width);
 //void DimImage(int imageArray[80][80], int* height, int* width);
+//void BrightenImage(int imageArray[80][80], int* height, int* width);
 
 int main() {
 	int choice = 0;
@@ -156,7 +157,7 @@ void DisplayImage(int imageArray[80][80], int h, int w){
  	//printf("The row and column values start in the upper lefthand corner.");			
  	//return;
 //}
-//case 4 Edit image
+//case 4 Dim image
 //void DimImage(int imageArray[80][80], int* height, int* width){
 	//for(int i = 0; i < height; i++) {
 		//for(int j = 0; j < width; j++) {
@@ -184,8 +185,33 @@ void DisplayImage(int imageArray[80][80], int h, int w){
         //fprintf(stderr, "Could not open file.");
        // return;
    // }
+//case 5 Brighten image
+//void BrightenImage(int imageArray[80][80], int* height, int* width){
+	//for(int i = 0; i < height; i++) {
+		//for(int j = 0; j < width; j++) {		
+			//if(imageArray[i][j] != 4){
+				//imageArray[i][j] -= 1;
+			//}
+		//}
+	//}		
+	//DisplayImage(int imageArray[80][80], int* height, int* width);
+   // }
+   // printf("\n");
+		//printf("Would you like to save the file? (y/n)");
+		//printf("What do you want to name the image file? (include the extension)");
+	//int height = 0;
+    	//int width = 0;
+    	//char fileName[100];
+    		//printf("What is the name of the image file? ");
+    		//scanf("%s", fileName);
 
+    		//FILE* filePtr;
+    		//filePtr = fopen(fileName, "r");
 
+    	//if (filePtr == NULL) {
+        //fprintf(stderr, "Could not open file.");
+       // return;
+   // }
 
 
 	
