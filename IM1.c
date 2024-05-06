@@ -7,13 +7,14 @@
 
 void DisplayImage(int imageArray[80][80], int h, int w);
 void LoadImage(int imageArray[80][80], int* height, int* width);
-// int edit(int chg1,int chg2);
+void EditImage(int imageArray[80][80], int* height, int* width);
+//void DimImage(int imageArray[80][80], int* height, int* width);
+//void BrightenImage(int imageArray[80][80], int* height, int* width);
+// void CropImage (int imageArray[80][80], int* height, int* width);
 
 int main() {
 	int choice = 0;
-    int change = 0;
 	int imageArray[80][80];
-   
     int height = 0;
     int width = 0;
 	do {	
@@ -25,7 +26,8 @@ int main() {
         printf("3. Edit Image\n");
         printf("4. Exit\n");
         printf("====================\n");
-        printf("Enter your choice: \n");
+        printf("Choose from one of the options above: ");
+       
    
         scanf("%d", &choice);
         switch (choice) {
@@ -36,7 +38,7 @@ int main() {
                 DisplayImage(imageArray, height, width);           
                 break;
             case 3:
-                // EditImage();
+                EditImage(imageArray, &height, &width);
                 break;
             case 4:
                 printf("Exiting...");
@@ -73,6 +75,7 @@ void LoadImage(int imageArray[80][80], int* h, int* w) {
     while (fgets(line, sizeof(line), filePtr)) {
         height++;
         int i = 0;
+        width = 0;
         while (line[i] != '\0') {
             if (line[i] != ' ' && line[i] != '\n') {
                 width++;
@@ -80,23 +83,29 @@ void LoadImage(int imageArray[80][80], int* h, int* w) {
             i++;
         }
     }
-
-    rewind(filePtr);
+    fclose(filePtr);
+    
+    filePtr = fopen(fileName, "r");
+    
     for (int i = 0; i < height; i++) {
         for (int j= 0; j < width; j++) {
-            fscanf(filePtr, "%d", &imageArray[i][j]);
+            char ch;
+            do {
+                fscanf(filePtr, "%c", &ch);
+            } while (ch == ' ' || ch == '\n'); 
+            imageArray[i][j] = ch - '0'; 
         }
     }
     fclose(filePtr);
-    *w = width/height;
+    *w = width;
     *h = height;
 }
 			
 //case 2 Display image
 void DisplayImage(int imageArray[80][80], int h, int w){
+    printf("\n");
     for(int j = 0; j < h; j++){
         for (int i = 0; i < w; i++){
-            // printf("%d", imageArray[j][i]);
             if(imageArray[j][i] == 0) {
                 printf(" ");
             }
@@ -115,75 +124,103 @@ void DisplayImage(int imageArray[80][80], int h, int w){
         }
         printf("\n");
     }
+    printf("\n");
 }
 					
 	
 			
 //case 3 Edit image
-// int edit(int chg1,chg2){
+void EditImage(int imageArray[80][80], int* height, int* width){
+	int userInput = 0;
+	printf("\n");
+ 	printf("	**EDITING** \n");
+ 	printf("1: Crop image\n");
+ 	printf("2: Dim image\n");
+ 	printf("3: Brighten image\n");
+  	printf("0: Return to main menu\n\n");
+  	printf("Choose from one of the options above: ");
+  	
+  	scanf("%d", &userInput);
+ 	//switch (userInput) {
+          //case 1:
+             //CropImage();
+             //break;
+          //case 2:
+             //DimImage();           
+             //break;
+ 	  //case 3:
+             //BrightenImage();
+             //break;
+ 	  //case 0:
+             //Return();
+             //break;
+ 	 //default:
+ 	//printf("The picture you have loaded or modified needs to be reloaded!");
+ 	     //break; 	
+ 	//}	
+ 	//printf("Choose from one of the options above: "); 
+ 	
+ 	//printf("The image you want to crop is %d", &DisplayImage);
+ 	//printf("The row and column values start in the upper lefthand corner.");			
+ 	return;
+}
+//case 4 Dim image
+//void DimImage(int imageArray[80][80], int* height, int* width){
+	//for(int i = 0; i < height; i++) {
+		//for(int j = 0; j < width; j++) {
+		
+			//if(imageArray[i][j] != 0){
+				//imageArray[i][j] -= 1;
+			//}
+		//}
+	//}		
+	//DisplayImage(int imageArray[80][80], int* height, int* width);
+   // }
+   // printf("\n");
+		//printf("Would you like to save the file? (y/n)");
+		//printf("What do you want to name the image file? (include the extension)");
+	//int height = 0;
+    	//int width = 0;
+    	//char fileName[100];
+    		//printf("What is the name of the image file? ");
+    		//scanf("%s", fileName);
 
-// 	printf("	**EDITING** \n");
-// 	printf("1: Crop image\n");
-// 	printf("2: Dim image\n");
-// 	printf("3: Brighten image\n");
-//  printf("0: Return to main menu\n");
-// 	switch (change) {
-//          case 1:
-//             CropImage();
-//             break;
-//          case 2:
-//             DimImage();           
-//             break;
-// 	        case 3:
-//             BrightenImage();
-//             break;
-// 	        case 0:
-//             Return();
-//             break;
-// 	 default:
-// 	 printf("The picture you have loaded or modified needs to be reloaded!");
-// 	 		break; 	
-// 	}	
-// 	printf("Choose from one of the options above: "); 
-// 	int height, width;
-// 	height = chg1;
-// 	width = chg2;
-// 	printf("The image you want to crop is %d", &DisplayImage);
-// 	printf("The row and column values start in the upper lefthand corner.");			
-// 	return height;
-// }
+    		//FILE* filePtr;
+    		//filePtr = fopen(fileName, "r");
 
+    	//if (filePtr == NULL) {
+        //fprintf(stderr, "Could not open file.");
+       // return;
+   // }
+//case 5 Brighten image
+//void BrightenImage(int imageArray[80][80], int* height, int* width){
+	//for(int i = 0; i < height; i++) {
+		//for(int j = 0; j < width; j++) {		
+			//if(imageArray[i][j] != 4){
+				//imageArray[i][j] += 1;
+			//}
+		//}
+	//}		
+	//DisplayImage(int imageArray[80][80], int* height, int* width);
+   // }
+   // printf("\n");
+		//printf("Would you like to save the file? (y/n)");
+		//printf("What do you want to name the image file? (include the extension)");
+	//int height = 0;
+    	//int width = 0;
+    	//char fileName[100];
+    		//printf("What is the name of the image file? ");
+    		//scanf("%s", fileName);
 
+    		//FILE* filePtr;
+    		//filePtr = fopen(fileName, "r");
 
-// void DimImage (int imageArray[80][80]) {
-//
-//	for (int i = 0; i < 80; i++) {
-//
-//		for (int j = 0; j < 80; j++) {
-//
-//			imageArray[80][80]--;
-//
-//		}
-//
-//	}
-//	DisplayImage function call here
-
-
-// void BrightenImage (int imageArray[80][80]) {
-//
-//	for (int i = 0; i < 80; i++) {
-//
-//		for (int j = 0; j < 80; j++) {
-//
-//			imageArray[80][80]++;
-//
-//		}
-//
-//	}
-//	DisplayImage function call here
-
-
-// void CropImage (int imageArray[80][80]) {
+    	//if (filePtr == NULL) {
+        //fprintf(stderr, "Could not open file.");
+       // return;
+   // }
+//case 6 Crop Image
+// void CropImage (int imageArray[80][80], int* height, int* width) {
 //	int lColumn, rColumn, tRow, bRow;
 //
 //	printf("The image you want to crop is 12 x 21.\n");
@@ -214,17 +251,8 @@ void DisplayImage(int imageArray[80][80], int h, int w){
 
 
 
-
-
-
-
-
-
-
-
+	
+	
 
 	
-		
-
-			
 			
