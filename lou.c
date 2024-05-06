@@ -25,7 +25,8 @@ int main() {
         printf("3. Edit Image\n");
         printf("4. Exit\n");
         printf("====================\n");
-        printf("Enter your choice: \n");
+        printf("Choose from one of the options above: ");
+       
    
         scanf("%d", &choice);
         switch (choice) {
@@ -127,11 +128,13 @@ void DisplayImage(int imageArray[80][80], int h, int w){
 //case 3 Edit image
 void EditImage(int imageArray[80][80], int* height, int* width){
 	int userInput = 0;
+	printf("\n");
  	printf("	**EDITING** \n");
  	printf("1: Crop image\n");
  	printf("2: Dim image\n");
  	printf("3: Brighten image\n");
-  	printf("0: Return to main menu\n");
+  	printf("0: Return to main menu\n\n");
+  	printf("Choose from one of the options above: ");
   	
   	scanf("%d", &userInput);
  	//switch (userInput) {
