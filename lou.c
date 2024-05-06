@@ -3,11 +3,11 @@
 //Date:4-29-24
 	
 #include <stdio.h>
-#include <stdbool>
+
 
 void DisplayImage(int imageArray[80][80], int h, int w);
 void LoadImage(int imageArray[80][80], int* height, int* width);
-//void EditImage(int imageArray[80][80], int* height, int* width);
+void EditImage(int imageArray[80][80], int* height, int* width);
 //void DimImage(int imageArray[80][80], int* height, int* width);
 //void BrightenImage(int imageArray[80][80], int* height, int* width);
 
@@ -36,7 +36,7 @@ int main() {
                 DisplayImage(imageArray, height, width);           
                 break;
             case 3:
-                //EditImage(imageArray, &height, &width);
+                EditImage(imageArray, &height, &width);
                 break;
             case 4:
                 printf("Exiting...");
@@ -125,38 +125,38 @@ void DisplayImage(int imageArray[80][80], int h, int w){
 	
 			
 //case 3 Edit image
-//void EditImage(int imageArray[80][80], int* height, int* width){
-	//int userInput = 0;
- 	//printf("	**EDITING** \n");
- 	//printf("1: Crop image\n");
- 	//printf("2: Dim image\n");
- 	//printf("3: Brighten image\n");
-  	//printf("0: Return to main menu\n");
+void EditImage(int imageArray[80][80], int* height, int* width){
+	int userInput = 0;
+ 	printf("	**EDITING** \n");
+ 	printf("1: Crop image\n");
+ 	printf("2: Dim image\n");
+ 	printf("3: Brighten image\n");
+  	printf("0: Return to main menu\n");
   	
-  	//scanf("%d", &userInput);
+  	scanf("%d", &userInput);
  	//switch (userInput) {
           //case 1:
              //CropImage();
-            // break;
+             //break;
           //case 2:
              //DimImage();           
-            // break;
+             //break;
  	  //case 3:
              //BrightenImage();
-            // break;
- 	 // case 0:
+             //break;
+ 	  //case 0:
              //Return();
-            // break;
+             //break;
  	 //default:
  	//printf("The picture you have loaded or modified needs to be reloaded!");
- 	    // break; 	
+ 	     //break; 	
  	//}	
  	//printf("Choose from one of the options above: "); 
  	
  	//printf("The image you want to crop is %d", &DisplayImage);
  	//printf("The row and column values start in the upper lefthand corner.");			
- 	//return;
-//}
+ 	return;
+}
 //case 4 Dim image
 //void DimImage(int imageArray[80][80], int* height, int* width){
 	//for(int i = 0; i < height; i++) {
