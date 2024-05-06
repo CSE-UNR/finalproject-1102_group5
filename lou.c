@@ -10,6 +10,7 @@ void LoadImage(int imageArray[80][80], int* height, int* width);
 void EditImage(int imageArray[80][80], int* height, int* width);
 //void DimImage(int imageArray[80][80], int* height, int* width);
 //void BrightenImage(int imageArray[80][80], int* height, int* width);
+// void CropImage (int imageArray[80][80], int* height, int* width);
 
 int main() {
 	int choice = 0;
@@ -215,6 +216,36 @@ void EditImage(int imageArray[80][80], int* height, int* width){
         //fprintf(stderr, "Could not open file.");
        // return;
    // }
+//case 6 Crop Image
+// void CropImage (int imageArray[80][80], int* height, int* width) {
+//	int lColumn, rColumn, tRow, bRow;
+//
+//	printf("The image you want to crop is 12 x 21.\n");
+//	printf("The row and column values start in the upper lefthand corner.\n");
+//	printf("\n");
+//	printf("Which column do you want to be the new left side?");
+//	scanf("%d", &lColumn);
+//
+//	printf("Which column do you want to be the new right side?");
+//	scanf("%d", &rColumn);
+//	while (lColumn >= rColumn) {
+//
+//		printf("Invalid column value. Choose a value greater than %d:", lColumn);
+//		scanf("%d", &rColumn);
+//
+//	}
+
+//	printf("Which row do you want to be the new top?");
+//	scanf("%d", &tRow);
+//	printf("Which row do you want to be the new bottom?");
+//	scanf("%d", &bRow);
+//	while (bRow >= tRow) {
+//
+//		printf("Invalid row value. Choose a value lower than %d:", tRow);
+//		scanf("%d", &bRow);
+//		 
+//	}
+
 
 
 	
