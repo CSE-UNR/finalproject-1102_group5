@@ -3,7 +3,7 @@
 //Date:4-29-24
 	
 #include <stdio.h>
-
+#include <stdbool>
 
 void DisplayImage(int imageArray[80][80], int h, int w);
 void LoadImage(int imageArray[80][80], int* height, int* width);
@@ -190,7 +190,7 @@ void DisplayImage(int imageArray[80][80], int h, int w){
 	//for(int i = 0; i < height; i++) {
 		//for(int j = 0; j < width; j++) {		
 			//if(imageArray[i][j] != 4){
-				//imageArray[i][j] -= 1;
+				//imageArray[i][j] += 1;
 			//}
 		//}
 	//}		
