@@ -193,7 +193,7 @@ void DimImage(int imageArray[80][80], int* height, int* width){
     		filePtr = fopen(fileName, "r");
 
     	if (filePtr == NULL) {
-        fprintf(stderr, "Could not open file.");
+                fprintf(stderr, "Could not open file.");
         return;
     }
     
@@ -238,8 +238,8 @@ void CropImage(int imageArray[80][80], int* height, int* width) {
  	int newTop = 0;
  	int newBottom = 0;
  		printf(" 1\n");
- 		printf("1 ");
- 
+ 		printf("1");
+ 		
  	for (int i = 0; i < *height; i++) {
  	if(i != 0 && i < *height - 1){
  		printf(" ");
