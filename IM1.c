@@ -222,8 +222,9 @@ void DimImage(int imageArray[80][80], int* height, int* width){
     		
     		}
     		
-    		else if (userOption == 'N' && userOption == 'n') {
+    		else if (userOption == 'N' || userOption == 'n') {
     			
+    			printf("\n");
     		
     		}
 }
@@ -282,7 +283,9 @@ void BrightenImage(int imageArray[80][80], int* height, int* width){
     		
     		}
     		
-    		else if (userChoice == 'N' && userChoice == 'n') {
+    		else if (userChoice == 'N' || userChoice == 'n') {
+    		
+    			printf("\n");
     		
     		}
    }
@@ -356,6 +359,32 @@ void CropImage(int imageArray[80][80], int* height, int* width) {
  	}
  	newBottom = userInput;
  	char userSave = 't';
+ 		
+    printf("\n");
+    for(int j = newTop; j < newBottom; j++){
+        for (int i = newLeftColumn; i < newRightColumn; i++){
+            if(imageArray[j][i] == 0) {
+                printf(" ");
+            }
+            else if(imageArray[j][i] == 1){
+                printf(".");
+            }
+            else if(imageArray[j][i] == 2){
+                printf("o");
+            }
+            else if(imageArray[j][i] == 3){
+                printf("O");
+            }
+            else if(imageArray[j][i] == 4){
+                printf("0");
+            }
+        }
+        printf("\n");
+    }
+    printf("\n"); 		
+ 		
+ 		
+ 		
  		printf("Would You Like To Save The File? (y/n) ");
  		scanf(" %c", &userSave);
  	if(userSave == 'y' || userSave == 'Y'){
