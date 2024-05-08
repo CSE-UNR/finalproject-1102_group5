@@ -168,6 +168,9 @@ void EditImage(int imageArray[80][80], int* height, int* width){
 }
 //case 4 Dim image
 void DimImage(int imageArray[80][80], int* height, int* width){
+	
+	char userOption;
+	
 	for(int i = 0; i < *height; i++) {
 		for(int j = 0; j < *width; j++) {
 		
@@ -182,24 +185,54 @@ void DimImage(int imageArray[80][80], int* height, int* width){
     
     printf("\n");
 		printf("Would you like to save the file? (y/n) ");
-		printf("What do you want to name the image file? (include the extension) ");
-	int peak = 0;
-    	int span = 0;
-    	char fileName[100];
-    		printf("What is the name of the image file? ");
-    		scanf("%s", fileName);
+		scanf(" %c", &userOption);
+		
+		if (userOption == 'Y' || userOption == 'y') { 
+		
+			printf("What do you want to name the image file? (include the extension) ");
+			int peak = 0;
+    			int span = 0;
+    			char fileName[100];
+    		
+    			scanf("%s", fileName);
 
-    		FILE* filePtr;
-    		filePtr = fopen(fileName, "r");
+    			FILE* filePtr;
+    			filePtr = fopen(fileName, "w");
 
-    	if (filePtr == NULL) {
-                fprintf(stderr, "Could not open file.");
-        return;
-    }
+    			if (filePtr == NULL) {
+                		fprintf(stderr, "Could not open file.");
+                   
+        		return;
+    			}
     
+    		else {
+    	
+    			for(int a = 0; a < *height; a++) {
+				for(int b = 0; b < *width; b++) {
+			
+					fprintf(filePtr, "%d", imageArray[a][b]);
+			
+				}	
+    					fprintf(filePtr, "\n");
+    			}
+    		
+    		fclose (filePtr);
+    		
+    		}
+    		
+    		}
+    		
+    		else if (userOption == 'N' || userOption == 'n') {
+    			
+    			printf("\n");
+    		
+    		}
 }
 //case 5 Brighten image
 void BrightenImage(int imageArray[80][80], int* height, int* width){
+	
+	char userChoice;
+	
 	for(int i = 0; i < *height; i++) {
 		for(int j = 0; j < *width; j++) {		
 			
@@ -214,21 +247,47 @@ void BrightenImage(int imageArray[80][80], int* height, int* width){
     
     printf("\n");
 		printf("Would you like to save the file? (y/n) ");
-		printf("What do you want to name the image file? (include the extension) ");
-	int peak = 0;
-    	int span = 0;
-    	char fileName[100];
-    		printf("What is the name of the image file? ");
-    		scanf("%s", fileName);
+		scanf(" %c", &userChoice);
+		
+		if (userChoice == 'Y' || userChoice == 'y') {
+		
+			printf("What do you want to name the image file? (include the extension) ");
+			int peak = 0;
+    			int span = 0;
+    			char fileName[100];
+    		
+    			scanf("%s", fileName);
 
-    		FILE* filePtr;
-    		filePtr = fopen(fileName, "r");
+    			FILE* filePtr;
+    			filePtr = fopen(fileName, "w");
 
-    	if (filePtr == NULL) {
-        fprintf(stderr, "Could not open file.");
-        return;
-    }
+    			if (filePtr == NULL) {
+        			fprintf(stderr, "Could not open file.");
+        			return;
+    			}
     
+    			else {
+    	
+    				for(int a = 0; a < *height; a++) {
+					for(int b = 0; b < *width; b++) {
+			
+						fprintf(filePtr, "%d", imageArray[a][b]);
+			
+				}	
+    						fprintf(filePtr, "\n");
+    			}
+    		
+    			fclose (filePtr);
+    		
+    			}
+    		
+    		}
+    		
+    		else if (userChoice == 'N' || userChoice == 'n') {
+    		
+    			printf("\n");
+    		
+    		}
    }
 //case 6 Crop Image
 void CropImage(int imageArray[80][80], int* height, int* width) {
@@ -300,6 +359,32 @@ void CropImage(int imageArray[80][80], int* height, int* width) {
  	}
  	newBottom = userInput;
  	char userSave = 't';
+ 		
+    printf("\n");
+    for(int j = newTop; j < newBottom; j++){
+        for (int i = newLeftColumn; i < newRightColumn; i++){
+            if(imageArray[j][i] == 0) {
+                printf(" ");
+            }
+            else if(imageArray[j][i] == 1){
+                printf(".");
+            }
+            else if(imageArray[j][i] == 2){
+                printf("o");
+            }
+            else if(imageArray[j][i] == 3){
+                printf("O");
+            }
+            else if(imageArray[j][i] == 4){
+                printf("0");
+            }
+        }
+        printf("\n");
+    }
+    printf("\n"); 		
+ 		
+ 		
+ 		
  		printf("Would You Like To Save The File? (y/n) ");
  		scanf(" %c", &userSave);
  	if(userSave == 'y' || userSave == 'Y'){
@@ -328,4 +413,5 @@ void CropImage(int imageArray[80][80], int* height, int* width) {
 	
 	
 
+	
 			
